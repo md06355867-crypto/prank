@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Scan</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #020204;
+    color: #00ff9d;
+    font-family: monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.box {
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    padding: 25px;
+    border: 1px solid #00ff9d;
+    box-shadow: 0 0 20px #00ff9d;
+    background: rgba(0,0,0,.75);
+}
+
+.title {
+    font-size: 20px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    margin-bottom: 25px;
+}
+
+#status {
+    font-size: 14px;
+    min-height: 22px;
+    color: #ff00ff;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+.progress-box {
+    width: 100%;
+    height: 14px;
+    border: 1px solid #00ffff;
+    margin: 20px 0 10px;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg,#00ff00,#00ffff,#ff00ff);
+    box-shadow: 0 0 12px #00ffff;
+}
+
+#percent {
+    font-size: 13px;
+    color: #ffff00;
+}
+
+#result {
+    display: none;
+}
+
+.pranked {
+    font-size: 32px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff,0 0 25px #00ffff;
+    margin-bottom: 20px;
+}
+
+.facebook {
+    display: inline-block;
+    padding: 9px 18px;
+    color: white;
+    background: #1877f2;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+    box-shadow: 0 0 12px #1877f2;
+}
+
+.powered {
+    position: fixed;
+    bottom: 12px;
+    font-size: 11px;
+    color: #00ff9d;
+    opacity: .8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div id="main">
+<div class="title">[ SYSTEM SCAN ]</div>
+
+<div id="status">Initializing...</div>
+
+<div class="progress-box">
+<div id="progress"></div>
+</div>
+
+<div id="percent">0%</div>
+</div>
+
+<div id="result">
+
+<div class="pranked">
+PRANKED 😂
+</div>
+
+<a class="facebook"
+href="https://www.facebook.com/profile.php?id=61572335180009"
+target="_blank">
+My Facebook
+</a>
+
+</div>
+
+</div>
+
+<div class="powered">
+Powered by Raju
+</div>
+
+<script>
+
+let progress = 0;
+
+const messages = [
+"Initializing...",
+"Connecting...",
+"Scanning...",
+"Processing...",
+"Finalizing..."
+];
+
+const status = document.getElementById("status");
+const bar = document.getElementById("progress");
+const percent = document.getElementById("percent");
+
+const totalTime = 16000;
+const intervalTime = 100;
+
+const steps = totalTime / intervalTime;
+const increment = 100 / steps;
+
+let messageIndex = 0;
+
+const timer = setInterval(() => {
+
+progress += increment;
+
+if (progress > 100) {
+progress = 100;
+}
+
+bar.style.width = progress + "%";
+percent.innerText = Math.floor(progress) + "%";
+
+if (Math.floor(progress) % 20 === 0) {
+status.innerText = messages[messageIndex % messages.length];
+messageIndex++;
+}
+
+if (progress >= 100) {
+
+clearInterval(timer);
+
+setTimeout(() => {
+
+document.getElementById("main").style.display = "none";
+document.getElementById("result").style.display = "block";
+
+}, 400);
+
+}
+
+}, intervalTime);
+
+</script>
+
+</body>
+</html>
