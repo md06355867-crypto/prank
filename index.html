@@ -1,194 +1,1341 @@
-<!DOCTYPE html>
-<html lang="en">
+k<!DOCTYPE html>
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>System Scan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalKit BD | বাংলা ডিজিটাল পণ্য</title>
+  <meta name="description" content="ছোট ব্যবসা ও উদ্যোক্তাদের জন্য সহজ ও ব্যবহারযোগ্য বাংলা ডিজিটাল পণ্য। Sales Tracker, Invoice, Expense Tracker সহ সম্পূর্ণ Business Kit মাত্র ৳199।">
 
-<style>
-* {
-    box-sizing: border-box;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-body {
-    margin: 0;
-    background: #020204;
-    color: #00ff9d;
-    font-family: monospace;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
+  <style>
+    :root {
+      --primary: #635bff;
+      --primary-dark: #5048d8;
+      --dark: #111827;
+      --text: #4b5563;
+      --light: #f7f8fc;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --green: #16a34a;
+      --shadow: 0 20px 60px rgba(17, 24, 39, 0.10);
+      --shadow-sm: 0 8px 24px rgba(17, 24, 39, 0.08);
+    }
 
-.box {
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    padding: 25px;
-    border: 1px solid #00ff9d;
-    box-shadow: 0 0 20px #00ff9d;
-    background: rgba(0,0,0,.75);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.title {
-    font-size: 20px;
-    color: #00ffff;
-    text-shadow: 0 0 10px #00ffff;
-    margin-bottom: 25px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-#status {
-    font-size: 14px;
-    min-height: 22px;
-    color: #ff00ff;
-    text-shadow: 0 0 8px #ff00ff;
-}
+    body {
+      font-family: "Hind Siliguri", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-.progress-box {
-    width: 100%;
-    height: 14px;
-    border: 1px solid #00ffff;
-    margin: 20px 0 10px;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-#progress {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg,#00ff00,#00ffff,#ff00ff);
-    box-shadow: 0 0 12px #00ffff;
-}
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
 
-#percent {
-    font-size: 13px;
-    color: #ffff00;
-}
+    /* ========== HEADER ========== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1200;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(229,231,235,.7);
+    }
 
-#result {
-    display: none;
-}
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.pranked {
-    font-size: 32px;
-    color: #ff00ff;
-    text-shadow: 0 0 10px #ff00ff,0 0 25px #00ffff;
-    margin-bottom: 20px;
-}
+    .logo {
+      font-size: 23px;
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+      z-index: 1001;
+    }
 
-.facebook {
-    display: inline-block;
-    padding: 9px 18px;
-    color: white;
-    background: #1877f2;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 13px;
-    box-shadow: 0 0 12px #1877f2;
-}
+    .logo span {
+      color: var(--primary);
+    }
 
-.powered {
-    position: fixed;
-    bottom: 12px;
-    font-size: 11px;
-    color: #00ff9d;
-    opacity: .8;
-}
-</style>
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-button,
+    .primary-button,
+    .buy-button,
+    .contact-button {
+      background: var(--primary);
+      color: white;
+      border-radius: 12px;
+      padding: 11px 19px;
+      font-weight: 600;
+      transition: 0.25s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .nav-button:hover,
+    .primary-button:hover,
+    .buy-button:hover,
+    .contact-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2.5px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: #ffffff;
+      z-index: 1100;
+      padding: 90px 24px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+
+    .mobile-menu a {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      padding: 16px 18px;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:active {
+      background: #f0efff;
+      color: var(--primary);
+    }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 28px;
+      background: var(--primary);
+      color: white !important;
+      text-align: center;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .mobile-menu .mobile-cta:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hide mobile menu completely on desktop */
+    @media (min-width: 901px) {
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      background:
+        radial-gradient(circle at 80% 20%, #e9e7ff 0, transparent 30%),
+        linear-gradient(180deg, #fafaff 0%, #fff 100%);
+      padding: 100px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .badge {
+      display: inline-block;
+      color: var(--primary);
+      background: #efedff;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5.5vw, 64px);
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 540px;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .secondary-button {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--dark);
+      transition: 0.25s;
+    }
+
+    .secondary-button:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .trust-row {
+      display: flex;
+      gap: 36px;
+      margin-top: 42px;
+      flex-wrap: wrap;
+    }
+
+    .trust-row div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trust-row strong {
+      color: var(--dark);
+      font-size: 20px;
+    }
+
+    .trust-row small {
+      color: #8a8f9c;
+      font-size: 13px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      position: relative;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dashboard-card {
+      width: 340px;
+      background: white;
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid #eef0f5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dashboard-top,
+    .dashboard-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dashboard-top {
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .green-dot {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .money {
+      color: var(--dark);
+      font-size: 38px;
+      font-weight: 700;
+      margin-top: 22px;
+    }
+
+    .money-label {
+      color: #9096a3;
+      font-size: 14px;
+    }
+
+    .chart {
+      height: 120px;
+      display: flex;
+      align-items: end;
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .chart span {
+      flex: 1;
+      border-radius: 6px 6px 2px 2px;
+      background: linear-gradient(180deg, var(--primary), #a49fff);
+      transition: height 0.3s;
+    }
+
+    .success {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-one {
+      top: 40px;
+      left: -10px;
+    }
+
+    .card-two {
+      right: -10px;
+      bottom: 50px;
+    }
+
+    /* ========== SECTIONS ========== */
+    .features,
+    .products,
+    .how-it-works,
+    .faq {
+      padding: 100px 0;
+    }
+
+    .features,
+    .faq {
+      background: var(--light);
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+    }
+
+    .section-heading span,
+    .contact-box > div > span {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .section-heading h2 {
+      color: var(--dark);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      margin: 8px 0 12px;
+    }
+
+    .section-heading p {
+      font-size: 16px;
+    }
+
+    /* Features */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 28px 24px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      transition: 0.25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      background: #f0efff;
+      border-radius: 14px;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+    }
+
+    /* Product */
+    .product-main {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .product-preview {
+      min-height: 440px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 80% 20%, #857fff, transparent 30%),
+        linear-gradient(145deg, #4c45c8, #756fff);
+      padding: 28px;
+      color: white;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .preview-header,
+    .preview-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      letter-spacing: 1px;
+      opacity: 0.85;
+    }
+
+    .preview-content {
+      text-align: center;
+    }
+
+    .preview-icon {
+      width: 76px;
+      height: 76px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      font-size: 36px;
+      margin: 0 auto 22px;
+    }
+
+    .preview-content h3 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .price span {
+      color: #8b91a0;
+      font-size: 16px;
+    }
+
+    .price strong {
+      font-size: 40px;
+      color: var(--primary);
+    }
+
+    .price-old {
+      font-size: 18px;
+      color: #b0b5c0;
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+
+    .product-info h3 {
+      font-size: 28px;
+      line-height: 1.3;
+      color: var(--dark);
+      margin: 12px 0;
+    }
+
+    .product-info > p {
+      margin-bottom: 8px;
+    }
+
+    .product-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      margin: 24px 0 28px;
+    }
+
+    .product-list li {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--dark);
+      font-size: 15px;
+    }
+
+    .product-list span {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .buy-button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 16px;
+      font-size: 17px;
+    }
+
+    .buy-note {
+      text-align: center;
+      font-size: 13px;
+      color: #9298a5;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .buy-note .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 32px 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: white;
+      transition: 0.25s;
+    }
+
+    .step:hover {
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-3px);
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #efedff;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .step h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .step p {
+      font-size: 15px;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+
+    details[open] {
+      box-shadow: var(--shadow-sm);
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 16px;
+      padding: 20px 24px;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      background: #f0efff;
+      border-radius: 8px;
+      color: var(--primary);
+      font-size: 18px;
+      font-weight: 500;
+      flex-shrink: 0;
+      transition: 0.25s;
+    }
+
+    details[open] .faq-icon {
+      background: var(--primary);
+      color: white;
+      transform: rotate(45deg);
+    }
+
+    details p {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 80px 0;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #5149d8, #766fff);
+      color: white;
+      padding: 55px;
+      border-radius: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .contact-box > div > span {
+      color: #dcd9ff;
+    }
+
+    .contact-box h2 {
+      font-size: 34px;
+      margin: 6px 0;
+    }
+
+    .contact-box p {
+      opacity: 0.85;
+      font-size: 16px;
+    }
+
+    .contact-button {
+      background: white;
+      color: var(--primary);
+      white-space: nowrap;
+      padding: 14px 28px;
+      font-size: 16px;
+    }
+
+    .contact-button:hover {
+      background: #f4f3ff;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #10131b;
+      color: #aeb3bf;
+      padding: 55px 0 20px;
+    }
+
+    .footer .logo {
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    .footer-content p {
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+    }
+
+    .footer-links a {
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid #252936;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-button {
+        display: none;
+      }
+
+      .hero-grid,
+      .product-main {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .hero {
+        padding: 70px 0 60px;
+      }
+
+      .hero-card {
+        min-height: 380px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        min-height: 64px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .primary-button,
+      .secondary-button {
+        width: 100%;
+      }
+
+      .trust-row {
+        gap: 24px;
+      }
+
+      .dashboard-card {
+        width: 280px;
+        padding: 20px;
+      }
+
+      .money {
+        font-size: 30px;
+      }
+
+      .card-one {
+        left: 0;
+        top: 20px;
+        font-size: 13px;
+        padding: 10px 14px;
+      }
+
+      .card-two {
+        right: 0;
+        bottom: 20px;
+        font-size: 13px;
+        padding: 10px 14px;
+      }
+
+      .features,
+      .products,
+      .how-it-works,
+      .faq {
+        padding: 70px 0;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-preview {
+        min-height: 360px;
+      }
+
+      .preview-content h3 {
+        font-size: 28px;
+      }
+
+      .product-info h3 {
+        font-size: 24px;
+      }
+
+      .product-list {
+        grid-template-columns: 1fr;
+      }
+
+      .price strong {
+        font-size: 34px;
+      }
+
+      .contact-box {
+        padding: 36px 24px;
+      }
+
+      .contact-box h2 {
+        font-size: 26px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="box">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#home" class="logo">Digital<span>Kit</span> BD</a>
 
-<div id="main">
-<div class="title">[ SYSTEM SCAN ]</div>
+      <nav class="nav-links">
+        <a href="#home">হোম</a>
+        <a href="#products">পণ্য</a>
+        <a href="#features">সুবিধা</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">যোগাযোগ</a>
+      </nav>
 
-<div id="status">Initializing...</div>
+      <div class="nav-actions">
+        <a class="nav-button" href="https://www.facebook.com/profile.php?id=61572335180009" target="_blank" rel="noopener noreferrer">
+          মেসেজ করুন
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="মেনু খুলুন">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<div class="progress-box">
-<div id="progress"></div>
-</div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">হোম</a>
+    <a href="#products">পণ্য</a>
+    <a href="#features">সুবিধা</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">যোগাযোগ</a>
+    <a class="mobile-cta" href="https://www.facebook.com/profile.php?id=61572335180009" target="_blank" rel="noopener noreferrer">
+      মেসেজ করুন →
+    </a>
+  </div>
 
-<div id="percent">0%</div>
-</div>
+  <main id="home">
 
-<div id="result">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge">✨ সহজ • ব্যবহারযোগ্য • ডিজিটাল</div>
 
-<div class="pranked">
-PRANKED 😂
-</div>
+          <h1>
+            আপনার ব্যবসাকে
+            <span>আরও গুছিয়ে নিন</span>
+          </h1>
 
-<a class="facebook"
-href="https://www.facebook.com/profile.php?id=61572335180009"
-target="_blank">
-My Facebook
-</a>
+          <p>
+            ছোট ব্যবসা, অনলাইন seller এবং উদ্যোক্তাদের জন্য তৈরি সহজ ও ব্যবহারযোগ্য বাংলা ডিজিটাল টুলকিট।
+          </p>
 
-</div>
+          <div class="hero-buttons">
+            <a href="#products" class="primary-button">পণ্য দেখুন →</a>
+            <a href="https://www.facebook.com/profile.php?id=61572335180009" target="_blank" rel="noopener noreferrer" class="secondary-button">
+              Facebook-এ যোগাযোগ
+            </a>
+          </div>
 
-</div>
+          <div class="trust-row">
+            <div>
+              <strong>100%</strong>
+              <small>Digital</small>
+            </div>
+            <div>
+              <strong>বাংলা</strong>
+              <small>সহজ নির্দেশিকা</small>
+            </div>
+            <div>
+              <strong>৫ মিনিট</strong>
+              <small>Instant Delivery</small>
+            </div>
+          </div>
+        </div>
 
-<div class="powered">
-Powered by Raju
-</div>
+        <div class="hero-card">
+          <div class="floating-card card-one">📊 Sales Tracker</div>
 
-<script>
+          <div class="dashboard-card">
+            <div class="dashboard-top">
+              <span>Business Overview</span>
+              <span class="green-dot">● Live</span>
+            </div>
 
-let progress = 0;
+            <div class="money">৳24,850</div>
+            <div class="money-label">এই মাসের মোট বিক্রয়</div>
 
-const messages = [
-"Initializing...",
-"Connecting...",
-"Scanning...",
-"Processing...",
-"Finalizing..."
-];
+            <div class="chart">
+              <span style="height:35%"></span>
+              <span style="height:55%"></span>
+              <span style="height:42%"></span>
+              <span style="height:70%"></span>
+              <span style="height:62%"></span>
+              <span style="height:88%"></span>
+              <span style="height:75%"></span>
+            </div>
 
-const status = document.getElementById("status");
-const bar = document.getElementById("progress");
-const percent = document.getElementById("percent");
+            <div class="dashboard-bottom">
+              <span>Income</span>
+              <span class="success">+18.5%</span>
+            </div>
+          </div>
 
-const totalTime = 16000;
-const intervalTime = 100;
+          <div class="floating-card card-two">🧾 Invoice Template</div>
+        </div>
+      </div>
+    </section>
 
-const steps = totalTime / intervalTime;
-const increment = 100 / steps;
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <span>কেন আমাদের পণ্য?</span>
+          <h2>সহজভাবে কাজ গুছিয়ে নিন</h2>
+          <p>অপ্রয়োজনীয় জটিলতা বাদ দিয়ে প্রয়োজনীয় জিনিসগুলো এক জায়গায়।</p>
+        </div>
 
-let messageIndex = 0;
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">🇧🇩</div>
+            <h3>বাংলায় তৈরি</h3>
+            <p>সহজ বাংলা ভাষায় তৈরি, যাতে ব্যবহার করতে অতিরিক্ত কিছু শেখার প্রয়োজন না হয়।</p>
+          </div>
 
-const timer = setInterval(() => {
+          <div class="feature-card">
+            <div class="icon">⚡</div>
+            <h3>সহজ ব্যবহার</h3>
+            <p>সরাসরি ব্যবহার করার জন্য তৈরি করা template এবং tracker। কোনো জটিল সেটআপ নেই।</p>
+          </div>
 
-progress += increment;
+          <div class="feature-card">
+            <div class="icon">📱</div>
+            <h3>যেকোনো ডিভাইস</h3>
+            <p>ফোন বা কম্পিউটার — Google Sheets / Excel দিয়েই ব্যবহার করতে পারবেন।</p>
+          </div>
 
-if (progress > 100) {
-progress = 100;
-}
+          <div class="feature-card">
+            <div class="icon">🎯</div>
+            <h3>বাস্তব কাজে উপযোগী</h3>
+            <p>শুধু সুন্দর দেখানোর জন্য নয়— দৈনন্দিন কাজ সহজ করার জন্য তৈরি।</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-bar.style.width = progress + "%";
-percent.innerText = Math.floor(progress) + "%";
+    <!-- PRODUCT -->
+    <section class="products" id="products">
+      <div class="container">
+        <div class="section-heading">
+          <span>আমাদের পণ্য</span>
+          <h2>Bangla Smart Business Kit</h2>
+          <p>ছোট ব্যবসার হিসাব ও কাজ গুছিয়ে রাখার সম্পূর্ণ ডিজিটাল টুলকিট।</p>
+        </div>
 
-if (Math.floor(progress) % 20 === 0) {
-status.innerText = messages[messageIndex % messages.length];
-messageIndex++;
-}
+        <div class="product-main">
+          <div class="product-preview">
+            <div class="preview-header">
+              <span>BUSINESS KIT</span>
+              <span>01</span>
+            </div>
 
-if (progress >= 100) {
+            <div class="preview-content">
+              <div class="preview-icon">📊</div>
+              <h3>Bangla Smart<br>Business Kit</h3>
+              <p>Plan • Track • Grow</p>
+            </div>
 
-clearInterval(timer);
+            <div class="preview-footer">
+              <span>DIGITAL PRODUCT</span>
+              <span>2026</span>
+            </div>
+          </div>
 
-setTimeout(() => {
+          <div class="product-info">
+            <div class="price">
+              <span>মূল্য</span>
+              <strong>৳199</strong>
+              <span class="price-old">৳499</span>
+            </div>
 
-document.getElementById("main").style.display = "none";
-document.getElementById("result").style.display = "block";
+            <h3>আপনার ব্যবসার প্রয়োজনীয় হিসাব ও planning tools একসাথে।</h3>
 
-}, 400);
+            <p>ছোট দোকান, Facebook seller, online business, freelancer এবং ছোট উদ্যোক্তাদের জন্য।</p>
 
-}
+            <ul class="product-list">
+              <li><span>✓</span> Sales Tracker</li>
+              <li><span>✓</span> Income & Expense Tracker</li>
+              <li><span>✓</span> Invoice Template</li>
+              <li><span>✓</span> Daily Planner</li>
+              <li><span>✓</span> Customer List</li>
+              <li><span>✓</span> Business Checklist</li>
+            </ul>
 
-}, intervalTime);
+            <a class="buy-button" href="https://www.facebook.com/profile.php?id=61572335180009" target="_blank" rel="noopener noreferrer">
+              এখনই কিনুন →
+            </a>
 
-</script>
+            <p class="buy-note">
+              <span class="dot"></span>
+              Facebook মেসেজ করুন • ৫ মিনিটের মধ্যে ডেলিভারি
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how">
+      <div class="container">
+        <div class="section-heading">
+          <span>কীভাবে কাজ করে</span>
+          <h2>৩টি সহজ ধাপে শুরু করুন</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">১</div>
+            <h3>অর্ডার করুন</h3>
+            <p>Facebook মেসেজের মাধ্যমে অর্ডার দিন</p>
+          </div>
+          <div class="step">
+            <div class="step-number">২</div>
+            <h3>পেমেন্ট করুন</h3>
+            <p>bKash / Nagad দিয়ে পেমেন্ট সম্পন্ন করুন</p>
+          </div>
+          <div class="step">
+            <div class="step-number">৩</div>
+            <h3>ডাউনলোড নিন</h3>
+            <p>তাৎক্ষণিকভাবে ফাইল পেয়ে যান</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <span>সাধারণ প্রশ্ন</span>
+          <h2>FAQ</h2>
+        </div>
+
+        <div class="faq-list">
+          **Summary:**
+
+              পণ্যটি কীভাবে পাবো?
+              <span class="faq-icon">+</span>
+            
+            <p>অর্ডার ও পেমেন্টের পর Google Drive লিংকের মাধ্যমে তাৎক্ষণিক ডাউনলোড করতে পারবেন। সাধারণত ৫ মিনিটের মধ্যেই পেয়ে যাবেন।</p>
+
+          **Summary:**
+
+              কোনো সফটওয়্যার ইনস্টল করতে হবে?
+              <span class="faq-icon">+</span>
+            
+            <p>না। Google Sheets বা Microsoft Excel দিয়েই সবকিছু ব্যবহার করতে পারবেন। ফোন বা কম্পিউটার — দুটোতেই কাজ করে।</p>
+
+          **Summary:**
+
+              রিফান্ড পাওয়া যায়?
+              <span class="faq-icon">+</span>
+            
+            <p>ডিজিটাল পণ্য হওয়ায় সাধারণত রিফান্ড দেওয়া হয় না। তবে কোনো সমস্যা থাকলে আমাদের সাথে যোগাযোগ করুন — আমরা সাপোর্ট দিব।</p>
+
+          **Summary:**
+
+              বাংলায় নির্দেশিকা আছে?
+              <span class="faq-icon">+</span>
+            
+            <p>হ্যাঁ, সম্পূর্ণ বাংলায় সহজ নির্দেশিকা দেওয়া আছে। কোনো জটিল ইংরেজি শব্দ নেই — সরাসরি ব্যবহার শুরু করতে পারবেন।</p>
+
+          **Summary:**
+
+              কারা ব্যবহার করতে পারবে?
+              <span class="faq-icon">+</span>
+            
+            <p>ছোট দোকান, Facebook/Instagram seller, freelancer, online business এবং যে কেউ যারা নিজেদের ব্যবসার হিসাব গুছিয়ে রাখতে চান।</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <span>যোগাযোগ</span>
+            <h2>প্রশ্ন আছে?</h2>
+            <p>যেকোনো প্রশ্নের জন্য Facebook মেসেজ করুন। আমরা দ্রুত রিপ্লাই দিই।</p>
+          </div>
+          <a class="contact-button" href="https://www.facebook.com/profile.php?id=61572335180009" target="_blank" rel="noopener noreferrer">
+            মেসেজ করুন →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <a href="#home" class="logo">Digital<span>Kit</span> BD</a>
+          <p>
+            ছোট ব্যবসা ও উদ্যোক্তাদের জন্য<br>
+            সহজ বাংলা ডিজিটাল পণ্য।
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">হোম</a>
+          <a href="#products">পণ্য</a>
+          <a href="#features">সুবিধা</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">যোগাযোগ</a>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 DigitalKit BD. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close menu on resize if desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
 
 </body>
 </html>
